@@ -5,18 +5,11 @@ p = [list(permutations(x)) for x in l] # Create all permutations of ranges
 
 out = []
 
-import math
-
-def checkprime(n):
-    if n == 1: return False
-    for i in range(2,int(math.sqrt(n))+1):
-        if n % i == 0:
-            return False
-    return True
+from eulertools import checkPrime
 
 for x in p:
     for t in x:
         t = int(''.join(str(a) for a in t)) # Convert tuple to integer
-        if checkprime(t): out.append(t)
+        if checkPrime(t): out.append(t)
 
 print(max(out))
